@@ -62,12 +62,17 @@ public class MeepMeepTesting {
             .build());
 
       myBotSam.runAction(myBotSam.getDrive().actionBuilder(new Pose2d(-36, -55, Math.toRadians(270)))
-              .lineToY(-34)
-              .lineToY(-40)
-              //.setReversed(true)
-              //.setTangent(Math.toRadians(0))
-              .splineTo(new Vector2d(-57, -35), Math.toRadians(180))
-              .build());
+           .lineToY(-34)
+           .lineToY(-40)
+           .splineTo(new Vector2d(-57, -35), Math.toRadians(180))
+           .waitSeconds(3)
+           .lineToX(-52)
+           .splineToConstantHeading(new Vector2d(-35 ,-57), Math.toRadians(0))
+           .lineToX(20)
+           .setTangent(0)
+           .splineToConstantHeading(new Vector2d(50 ,-35), Math.toRadians(0))
+           .waitSeconds(3)
+           .build());
 
       meepMeep.setBackground(MeepMeep.Background.FIELD_CENTERSTAGE_OFFICIAL)
             .setDarkMode(true)
