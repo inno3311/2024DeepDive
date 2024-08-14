@@ -26,6 +26,12 @@ public class MeepMeepTesting {
               .setConstraints(60, 60, Math.toRadians(180), Math.toRadians(180), 15)
               .build();
 
+      RoadRunnerBotEntity myBotDaniel = new DefaultBotBuilder(meepMeep)
+              // Set bot constraints: maxVel, maxAccel, maxAngVel, maxAngAccel, track width
+              .setConstraints(60, 60, Math.toRadians(180), Math.toRadians(180), 15)
+              .build();
+
+
       myBot.runAction(myBot.getDrive().actionBuilder(new Pose2d(-36, -55, Math.toRadians(90)))
             //.waitSeconds(2)
             .lineToY(-34)
@@ -69,10 +75,21 @@ public class MeepMeepTesting {
               .splineTo(new Vector2d(-57, -35), Math.toRadians(180))
               .build());
 
+      myBotDaniel.runAction(myBotDaniel.getDrive().actionBuilder(new Pose2d(-42,-50,Math.toRadians(90)))
+                      .setTangent(Math.toRadians(0))
+                      .splineTo(new Vector2d(-55, -34),Math.toRadians(0))
+              .setTangent(Math.toRadians(0))
+              .lineToX(-12)
+                      .splineTo(new Vector2d(0, 0), Math.toRadians(-90))
+                      .splineTo(new Vector2d(48, -12), Math.toRadians(0))
+                      .setTangent(Math.toRadians(90))
+                      .lineToY(56)
+                      .build());
+
       meepMeep.setBackground(MeepMeep.Background.FIELD_CENTERSTAGE_OFFICIAL)
             .setDarkMode(true)
             .setBackgroundAlpha(0.95f)
-            .addEntity(myBot)
+            .addEntity(myBotDaniel)
             .start();
    }
 }
