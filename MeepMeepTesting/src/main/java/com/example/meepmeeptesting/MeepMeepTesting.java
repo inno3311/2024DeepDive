@@ -75,16 +75,19 @@ public class MeepMeepTesting {
               .splineTo(new Vector2d(-57, -35), Math.toRadians(180))
               .build());
 
-      myBotDaniel.runAction(myBotDaniel.getDrive().actionBuilder(new Pose2d(-42,-50,Math.toRadians(90)))
-                      .setTangent(Math.toRadians(0))
-                      .splineTo(new Vector2d(-55, -34),Math.toRadians(0))
+      myBotDaniel.runAction(myBotDaniel.getDrive().actionBuilder(new Pose2d(-36,-58,Math.toRadians(180)))
+              .splineToSplineHeading(new Pose2d(-55, -34, Math.toRadians(90)), Math.toRadians(90))
+              .splineToSplineHeading(new Pose2d(-36, 0, Math.toRadians(0)), Math.toRadians(0))
+              .lineToX(0)
+              .setTangent(0)
+              .splineToSplineHeading(new Pose2d(48, -36, Math.toRadians(90)), Math.toRadians(0))
+              .setTangent(Math.toRadians(90))
+              .lineToY(47)
               .setTangent(Math.toRadians(0))
-              .lineToX(-12)
-                      .splineTo(new Vector2d(0, 0), Math.toRadians(-90))
-                      .splineTo(new Vector2d(48, -12), Math.toRadians(0))
-                      .setTangent(Math.toRadians(90))
-                      .lineToY(56)
-                      .build());
+              .lineToXSplineHeading(0, Math.toRadians(180))
+              .lineToX(-55)
+              .build());
+
 
       meepMeep.setBackground(MeepMeep.Background.FIELD_CENTERSTAGE_OFFICIAL)
             .setDarkMode(true)

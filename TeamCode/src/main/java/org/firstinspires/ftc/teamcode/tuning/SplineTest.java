@@ -11,7 +11,7 @@ import org.firstinspires.ftc.teamcode.TankDrive;
 public final class SplineTest extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
-        Pose2d beginPose = new Pose2d(-42, -50, Math.toRadians(90));
+        Pose2d beginPose = new Pose2d(-36, -58, Math.toRadians(180));
         if (TuningOpModes.DRIVE_CLASS.equals(MecanumDrive.class)) {
             MecanumDrive drive = new MecanumDrive(hardwareMap, beginPose);
 
@@ -19,14 +19,16 @@ public final class SplineTest extends LinearOpMode {
 
             Actions.runBlocking(
                   drive.actionBuilder(beginPose)
-                          .setTangent(Math.toRadians(0))
-                          .splineTo(new Vector2d(-55, -34),Math.toRadians(0))
-                          .setTangent(Math.toRadians(0))
-                          .lineToX(-12)
-                          .splineTo(new Vector2d(0, 0), Math.toRadians(-90))
-                          .splineTo(new Vector2d(48, -12), Math.toRadians(0))
+                          .splineToSplineHeading(new Pose2d(-55, -34, Math.toRadians(90)), Math.toRadians(90))
+                          .splineToSplineHeading(new Pose2d(-36, 0, Math.toRadians(0)), Math.toRadians(0))
+                          .lineToX(0)
+                          .setTangent(0)
+                          .splineToSplineHeading(new Pose2d(48, -36, Math.toRadians(90)), Math.toRadians(0))
                           .setTangent(Math.toRadians(90))
-                          .lineToY(56)
+                          .lineToY(47)
+                          .setTangent(Math.toRadians(0))
+                          .lineToXSplineHeading(0, Math.toRadians(180))
+                          .lineToX(-55)
                           .build());
 
         } else if (TuningOpModes.DRIVE_CLASS.equals(TankDrive.class)) {
