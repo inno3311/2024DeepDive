@@ -1,7 +1,11 @@
 package com.example.meepmeeptesting;
 
 import com.acmerobotics.roadrunner.Action;
+import com.acmerobotics.roadrunner.AngularVelConstraint;
 import com.acmerobotics.roadrunner.Pose2d;
+import com.acmerobotics.roadrunner.Pose2dDual;
+import com.acmerobotics.roadrunner.ProfileAccelConstraint;
+import com.acmerobotics.roadrunner.TranslationalVelConstraint;
 import com.acmerobotics.roadrunner.Vector2d;
 import com.noahbres.meepmeep.MeepMeep;
 import com.noahbres.meepmeep.roadrunner.DefaultBotBuilder;
@@ -80,33 +84,9 @@ public class MeepMeepTesting {
            .waitSeconds(3)
            .build());
 
-      myBotDaniel.runAction(myBotDaniel.getDrive().actionBuilder(new Pose2d(-36,-58,Math.toRadians(90)))
-              .setTangent(Math.toRadians(90))
-              .lineToY(-22)
-              .turn(Math.toRadians(450))
-              .setTangent(Math.toRadians(180))
-              .splineToConstantHeading(new  Vector2d(-16, 10), Math.toRadians(135))
-              .setTangent(Math.toRadians(135))
-              .lineToX(-26)
-              .turn(Math.toRadians(320))
-              .turn(Math.toRadians(-50))
-              .setTangent(Math.toRadians(270))
-              .lineToY(56)
-              .turn(Math.toRadians(-180))
-              .setTangent(Math.toRadians(0))
-              .lineToX(48)
-              .setTangent(Math.toRadians(225))
-              .lineToX(36)
-              .setTangent(Math.toRadians(270))
-              .lineToY(36)
-              .turn(Math.toRadians(360))
-              .lineToY(-12)
-              .turn(Math.toRadians(360))
-              .splineToLinearHeading(new Pose2d(22, -50, Math.toRadians(180)), Math.toRadians(-90))
-              .setTangent(Math.toRadians(180))
-              .lineToX(6)
-              .turn(Math.toRadians(360))
-              .build());
+      myBotDaniel.runAction(myBotDaniel.getDrive().actionBuilder(new Pose2d(0,0,Math.toRadians(90)))
+                      .build());
+
 
 
       meepMeep.setBackground(MeepMeep.Background.FIELD_CENTERSTAGE_OFFICIAL)
