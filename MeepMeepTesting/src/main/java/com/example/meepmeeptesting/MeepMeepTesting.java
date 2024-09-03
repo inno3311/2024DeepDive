@@ -92,7 +92,7 @@ public class MeepMeepTesting {
       meepMeep.setBackground(MeepMeep.Background.FIELD_CENTERSTAGE_OFFICIAL)
             .setDarkMode(true)
             .setBackgroundAlpha(0.95f)
-            .addEntity(myBotDaniel)
+            .addEntity(myBotSam)
             .start();
    }
 }
